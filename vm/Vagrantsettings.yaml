@@ -1,0 +1,25 @@
+####################
+# General settings.
+
+####################
+# Machine specs
+vm:
+  memory: 2048
+  name: ionic-android
+  hostname: ionic-android
+  timezone: 'Europe/Rome'
+
+####################
+# Puppet
+puppet:
+  manifests_path: vm/puppet/manifests
+  manifest_file: init.pp
+  options:
+    # --parser future
+    --verbose
+    --debug
+
+####################
+# Default vagrant box.
+box:
+  name: ubuntu/trusty64
