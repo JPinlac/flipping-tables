@@ -9,8 +9,8 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = project_settings['box']['name']
   
-  config.vm.network :forwarded_port, guest: 8100, host: 8100
-  config.vm.network :forwarded_port, guest: 35729, host: 35729
+  config.vm.network :forwarded_port, host: 8100, guest: 8100
+  config.vm.network :forwarded_port, host: 35729, guest: 35729
 
   # shared folders
   config.vm.synced_folder ".", "/vagrant"
@@ -40,3 +40,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :path => "vm/shell/bootstrap.sh"
   config.vm.provision :shell, run: "always", :path => "vm/shell/init.sh"
 end
+
